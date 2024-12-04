@@ -4,6 +4,36 @@ import e from 'express';
 
 const router = express.Router();
 
+// route for squad login
+router.post('/login', async (request, response) => {
+  try {
+    const { email, password } = request.body;
+
+    if (!email || !password) {
+      return response.status(400).send({
+        message: '400 Email and password are required',
+      });
+    }
+
+    // Find employee by email
+    const employee = await Employee.findOne({ email });
+
+    // Convert password to a number for comparison
+    const eidAsNumber = parseInt(password, 10);
+
+    // Check if employee exists and the password matches their `eid`
+    if (!employee || employee.eid !== eidAsNumber) {
+      return response.status(401).send({ message: "Invalid email or password." });
+    }
+
+    // Return success with `eid`
+    return response.status(200).send({ eid: employee.eid });
+  } catch (error) {
+    console.error(error.message);
+    response.status(500).send({ message: "Server error. Please try again." });
+  }
+});
+
 // Route for Save a new Book
 router.post('/', async (request, response) => {
   try {
