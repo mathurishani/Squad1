@@ -23,7 +23,7 @@ const assignmentSchema = mongoose.Schema(
       required: true,
     },
     college_zone: {
-      type: Number,
+      type: String,
       required: true,
     },
     course_id: {
@@ -38,6 +38,10 @@ const assignmentSchema = mongoose.Schema(
       type: Date,
       required: true,
     },
+    post: {
+      type: String,
+      required: true,
+    }
   },
   
 );

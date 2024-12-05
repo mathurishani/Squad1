@@ -18,6 +18,10 @@ const collegeSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    course_ids: {
+      type: [Number], // Array to hold multiple course IDs
+      required: true,
+    },
   }
   
 );

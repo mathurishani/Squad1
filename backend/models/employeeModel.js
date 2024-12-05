@@ -29,8 +29,14 @@ const employeeSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  subject_id: {
-    type: Number,
+  subject_ids: {
+    type: [Number], // Array to hold multiple course IDs
+    validate: {
+      validator: function (v) {
+        return v.length <= 3; // Limit to 3 subjects per employee
+      },
+      message: "An employee can be assigned up to 3 courses.",
+    },
     required: true,
   },
   phone: {
