@@ -1,0 +1,32 @@
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    position: fixed; /* Keeps the footer fixed at the bottom */
+    bottom: 0;
+    width: 100%;
+    left: 0; /* Ensures it stretches across the full width */
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

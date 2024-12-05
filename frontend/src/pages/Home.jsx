@@ -208,6 +208,8 @@ const Home = () => {
 
   return (
     <div className="p-4">
+
+
       {/* Navigation Bar */}
       <nav className="flex justify-around items-center bg-gray-200 py-3 shadow-md sticky top-0 z-50">
         {["employees", "colleges", "courses", "exams", "assignments"].map(
@@ -260,6 +262,7 @@ const Home = () => {
             {loadingExams ? <Spinner /> : <ExamsTable exams={exams} />}
           </div>
         )}
+
 
         {activeSection === "assignments" && (
           <div>
