@@ -22,6 +22,24 @@ router.post("/", async (request, response) => {
   }
 });
 
+// Route for fetching all assignments
+router.get("/", async (request, response) => {
+  try {
+    const assignments = await Assignment.find();
+
+    if (assignments.length === 0) {
+      return response.status(404).send({ message: "No assignments found." });
+    }
+
+    response.status(200).json(assignments);
+  } catch (error) {
+    console.error("Error fetching assignments:", error);
+    response.status(500).send({ message: "Failed to fetch assignments." });
+  }
+});
+
+
+
 // Route for fetching assignments based on emp_id
 router.get('/emp_id/:emp_id', async (request, response) => {
   try {

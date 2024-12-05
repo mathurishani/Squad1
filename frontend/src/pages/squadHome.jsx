@@ -21,7 +21,9 @@ const SquadHome = () => {
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        const response = await axios.get(`http://localhost:5555/employees/eid/${eid}`);
+        const response = await axios.get(
+          `http://localhost:5555/employees/eid/${eid}`
+        );
         setEmployee(response.data);
       } catch (err) {
         setError("Failed to fetch employee details. Please try again.");
@@ -29,12 +31,18 @@ const SquadHome = () => {
       }
     };
 
+
+    
+    // Fetch assignments for the employee by `eid`
     const fetchAssignments = async () => {
       try {
-        const response = await axios.get(`http://localhost:5555/assignments/emp_id/${eid}`);
+        const response = await axios.get(
+          `http://localhost:5555/assignments/emp_id/${eid}`
+        );
+
         setAssignments(response.data);
       } catch (err) {
-        setError("Failed to fetch assignments. Please try again.");
+       // setError("Failed to fetch assignments. Please try again.");
         console.error(err);
       }
     };
@@ -52,6 +60,7 @@ const SquadHome = () => {
   }
 
   return (
+
     <div style={myStyle}>
       <div className="flex p-6 mx-auto max-w-6xl bg-white shadow-lg rounded-lg">
         {/* Employee Details Card */}
@@ -107,6 +116,7 @@ const SquadHome = () => {
     )}
   </div>
 </div>
+
 
       </div>
     </div>

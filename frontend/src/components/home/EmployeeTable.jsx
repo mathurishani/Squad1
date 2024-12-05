@@ -27,7 +27,7 @@ const EmpployeesTable = ({ employees }) => {
         </tr>
       </thead>
       <tbody>
-        {employees.map((employee, index) => (
+        {employees.map((employee) => (
           <tr key={employee.eid} className="h-8">
             <td className="border border-slate-700 rounded-md text-center">
               {employee.eid}
@@ -51,7 +51,9 @@ const EmpployeesTable = ({ employees }) => {
               {employee.yr_of_exp_in_squad}
             </td>
             <td className="border border-slate-700 rounded-md text-center max-md:hidden">
-              {employee.subject_id}
+            {employee.subject_ids.length > 0
+                ? employee.subject_ids.join(", ") // Join course IDs with a comma
+                : "No courses assigned"}
             </td>
             <td className="border border-slate-700 rounded-md text-center max-md:hidden">
               {employee.phone}

@@ -16,6 +16,7 @@ const CollegesTable = ({ colleges }) => {
           <th className='border border-slate-600 rounded-md max-md:hidden'>
             Zone
           </th>
+          <th className='border border-slate-600 rounded-md'>Course IDs</th>
           {/* <th className='border border-slate-600 rounded-md'>College ID</th>
           <th className='border border-slate-600 rounded-md'>Course ID</th>
           <th className='border border-slate-600 rounded-md'>Phone</th>
@@ -37,7 +38,12 @@ const CollegesTable = ({ colleges }) => {
             <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
               {college.czone}
             </td>
-            <td className='border border-slate-700 rounded-md text-center'>
+            <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
+              {college.course_ids.length > 0
+                ? college.course_ids.join(", ") // Join course IDs with a comma
+                : "No courses assigned"}
+            </td>
+            {/* <td className='border border-slate-700 rounded-md text-center'>
               <div className='flex justify-center gap-x-4'>
                 <Link to={`/colleges/details/${college.eid}`}>
                   <BsInfoCircle className='text-2xl text-green-800' />
@@ -49,7 +55,7 @@ const CollegesTable = ({ colleges }) => {
                   <MdOutlineDelete className='text-2xl text-red-600' />
                 </Link>
               </div>
-            </td>
+            </td> */}
           </tr>
         ))}
       </tbody>
