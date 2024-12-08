@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Footer from "../pages/Footer";
+import Header2 from "../pages/Header2";
 
 const SquadHome = () => {
   const { eid } = useParams(); // Extract `eid` from the URL
@@ -62,6 +64,10 @@ const SquadHome = () => {
   return (
 
     <div style={myStyle}>
+      <div>
+        <Header2/>
+        <div></div>
+      </div>
       <div className="flex p-6 mx-auto max-w-6xl bg-white shadow-lg rounded-lg">
         {/* Employee Details Card */}
         <div className="w-1/2 p-6 border-r border-gray-300">
@@ -119,6 +125,9 @@ const SquadHome = () => {
 
 
       </div>
+      <div>
+        <Footer/>
+        </div>
     </div>
   );
 };
